@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/Home">
+
+    <fragment
+        android:id="@+id/Home"
+        android:name="com.android.photosapp.data.ui.fragments.MainFragment"
+        android:label="Main">
+        <action
+            android:id="@+id/action_mainFragment_to_add_dialog"
+            app:destination="@id/FFF" />
+        <action
+            android:id="@+id/action_mainFragment_to_Fourth"
+            app:destination="@id/FFF" />
+        <action
+            android:id="@+id/action_mainFragment_to_add_photo"
+            app:destination="@id/add_photo" />
+    </fragment>
+    <fragment
+        android:id="@+id/FFF"
+        android:name="com.android.photosapp.data.ui.fragments.TestFragment"
+        android:label="TestFragment" />
+    <fragment
+        android:id="@+id/add_photo"
+        android:name="com.android.photosapp.data.ui.fragments.AddDialogFragment"
+        android:label="Add photo" />
+</navigation>
