@@ -15,4 +15,6 @@ class MainRepository(application: Application) {
 
     suspend fun deleteAll() = photoDao.deleteAll()
 
+    suspend fun deletePhoto(photo:PhotoEntity) = photoDao.deletePhoto(photo)
+
 }

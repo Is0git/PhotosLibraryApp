@@ -49,7 +49,7 @@ class UploadService : IntentService("photo_service_thread") {
         val pendingIntent:PendingIntent = PendingIntent.getActivity(applicationContext, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT)
         photoNotification = Notification.Builder(applicationContext, ChannelConst.photoTaskChannel)
             .setContentTitle("Image is uploaded with title ${photo.title}")
-            .setContentText("Description: ${photo.image_url}")
+            .setContentText("Description: ${photo.description}")
             .setSmallIcon(R.drawable.ic_add_on_secondary_24dp)
             .setCategory(NotificationCompat.CATEGORY_MESSAGE)
             .setAutoCancel(true)

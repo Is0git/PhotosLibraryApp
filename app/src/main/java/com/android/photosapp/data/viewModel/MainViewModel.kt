@@ -11,9 +11,16 @@ import kotlinx.coroutines.launch
 class MainViewModel(application: Application) : AndroidViewModel(application) {
     val mainRepository:MainRepository = MainRepository(application)
 
-    public var photos = { mainRepository.getPhotos()}
+    var photo:LiveData<List<PhotoEntity>>
+
+    var photos = { mainRepository.getPhotos()}.also { photo = setPhotos(it) }
+
+    fun setPhotos(func:() -> LiveData<List<PhotoEntity>>) : LiveData<List<PhotoEntity>> = func()
+
 
     fun addPhoto(photo:PhotoEntity) =  viewModelScope.launch {mainRepository.addPhoto(photo)  }
 
      fun deleteAll() = viewModelScope.launch { mainRepository.deleteAll()}
+
+    fun deletePhoto(photo: PhotoEntity) = viewModelScope.launch { mainRepository.deletePhoto(photo) }
 }

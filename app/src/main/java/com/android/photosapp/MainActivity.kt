@@ -3,10 +3,8 @@ package com.android.photosapp
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -15,6 +13,7 @@ import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
 import com.android.photosapp.data.viewModel.MainViewModel
 import com.android.photosapp.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var activityMainBinding: ActivityMainBinding
@@ -28,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         navigationSetup(navigator, activityMainBinding)
         setSupportActionBar(activityMainBinding.toolbar)
         activityMainBinding.toolbar.setNavigationOnClickListener { navigator.navigateUp() }
+
 
     }
 
