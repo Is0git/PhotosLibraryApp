@@ -11,7 +11,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
-import com.android.photosapp.data.viewModel.MainViewModel
+import com.android.photosapp.data.viewModelPackage.MainViewModel
 import com.android.photosapp.databinding.ActivityMainBinding
 
 

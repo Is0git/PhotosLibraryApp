@@ -1,7 +1,6 @@
 package com.android.photosapp.data.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,13 +10,13 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.android.photosapp.data.ui.adapters.AllPhotosAdapter
-import com.android.photosapp.data.viewModel.MainViewModel
+import com.android.photosapp.data.viewModelPackage.MainViewModel
 import com.android.photosapp.databinding.MainFragmentLayoutBinding
 
 class MainFragment : Fragment() {
     lateinit var mainFragmentBinding: MainFragmentLayoutBinding
     lateinit var viewModel: MainViewModel
-    lateinit var adapter:AllPhotosAdapter
+    lateinit var adapter: AllPhotosAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,14 +27,12 @@ class MainFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(activity!!).get(MainViewModel::class.java)
         mainFragmentBinding.apply {
-           this.lifecycleOwner = lifecycleOwner
+            lifecycleOwner = activity
             model = viewModel
         }
-
         adapter = AllPhotosAdapter()
         mainFragmentBinding.recyclerView.adapter = adapter
-        viewModel.photos().observe(viewLifecycleOwner, Observer {
-            adapter.setData(it) })
+        viewModel.photo.observe(viewLifecycleOwner, Observer { adapter.submitList(it) })
 
         ItemTouchHelper(object :
             ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
@@ -48,8 +45,8 @@ class MainFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                if (adapter.photos != null) {
-                    viewModel.deletePhoto(adapter.photos!![viewHolder.adapterPosition])
+                if (adapter.currentList[viewHolder.adapterPosition] != null) {
+                    viewModel.deletePhoto(adapter.currentList[viewHolder.adapterPosition])
                 }
             }
         }).attachToRecyclerView(mainFragmentBinding.recyclerView)

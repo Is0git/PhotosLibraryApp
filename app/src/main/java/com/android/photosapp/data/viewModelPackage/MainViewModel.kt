@@ -1,4 +1,4 @@
-package com.android.photosapp.data.viewModel
+package com.android.photosapp.data.viewModelPackage
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -11,12 +11,7 @@ import kotlinx.coroutines.launch
 class MainViewModel(application: Application) : AndroidViewModel(application) {
     val mainRepository:MainRepository = MainRepository(application)
 
-    var photo:LiveData<List<PhotoEntity>>
-
-    var photos = { mainRepository.getPhotos()}.also { photo = setPhotos(it) }
-
-    fun setPhotos(func:() -> LiveData<List<PhotoEntity>>) : LiveData<List<PhotoEntity>> = func()
-
+    var photo:LiveData<MutableList<PhotoEntity>> = mainRepository.getPhotos()
 
     fun addPhoto(photo:PhotoEntity) =  viewModelScope.launch {mainRepository.addPhoto(photo)  }
 

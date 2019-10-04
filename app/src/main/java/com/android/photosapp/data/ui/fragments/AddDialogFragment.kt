@@ -13,7 +13,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.android.photosapp.data.entity.PhotoEntity
 import com.android.photosapp.data.services.UploadService
-import com.android.photosapp.data.viewModel.MainViewModel
+import com.android.photosapp.data.viewModelPackage.MainViewModel
 import com.android.photosapp.databinding.DialogFragmentLayoutBinding
 import com.google.android.material.snackbar.Snackbar
 
