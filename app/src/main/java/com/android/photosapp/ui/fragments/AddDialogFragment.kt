@@ -1,4 +1,4 @@
-package com.android.photosapp.data.ui.fragments
+package com.android.photosapp.ui.fragments
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -12,9 +12,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.android.photosapp.data.entity.PhotoEntity
-import com.android.photosapp.data.services.UploadService
 import com.android.photosapp.data.viewModelPackage.MainViewModel
 import com.android.photosapp.databinding.DialogFragmentLayoutBinding
+import com.android.photosapp.services.UploadService
 import com.google.android.material.snackbar.Snackbar
 
 class AddDialogFragment : DialogFragment() {
@@ -61,6 +61,7 @@ class AddDialogFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         navigator = Navigation.findNavController(view)
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (data?.data != null && requestCode == 101 && resultCode == RESULT_OK) showSnackBar("Image is selected").also {

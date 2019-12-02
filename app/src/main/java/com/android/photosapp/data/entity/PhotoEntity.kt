@@ -6,8 +6,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "photo_table")
-data class PhotoEntity(val title:String?, val image_url:String?, val description:String?, @PrimaryKey(autoGenerate = true)
-val id:Int=0) : Parcelable {
+data class PhotoEntity(
+    val title: String?,
+    val image_url: String?,
+    val description: String?, @PrimaryKey(autoGenerate = true)
+    val id: Int = 0
+) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),

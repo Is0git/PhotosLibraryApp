@@ -10,10 +10,10 @@ import com.android.photosapp.data.entity.PhotoEntity
 @Dao
 interface PhotoDao {
     @Query("SELECT * FROM photo_table")
-    fun getPhotos() : LiveData<MutableList<PhotoEntity>>
+    fun getPhotos(): LiveData<MutableList<PhotoEntity>>
 
     @Insert
-    suspend fun addPhoto(photo:PhotoEntity)
+    suspend fun addPhoto(photo: PhotoEntity)
 
     @Query("DELETE FROM photo_table")
     suspend fun deleteAll()

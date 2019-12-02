@@ -1,4 +1,4 @@
-package com.android.photosapp.data.ui.fragments
+package com.android.photosapp.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,9 +9,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.android.photosapp.data.ui.adapters.AllPhotosAdapter
 import com.android.photosapp.data.viewModelPackage.MainViewModel
 import com.android.photosapp.databinding.MainFragmentLayoutBinding
+import com.android.photosapp.ui.adapters.AllPhotosAdapter
 
 class MainFragment : Fragment() {
     lateinit var mainFragmentBinding: MainFragmentLayoutBinding

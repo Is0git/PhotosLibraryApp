@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/Home">
 
     <fragment
         android:id="@+id/Home"
-        android:name="com.android.photosapp.data.ui.fragments.MainFragment"
+        android:name="com.android.photosapp.ui.fragments.MainFragment"
         android:label="Main">
         <action
             android:id="@+id/action_mainFragment_to_add_dialog"
@@ -21,10 +20,10 @@
     </fragment>
     <fragment
         android:id="@+id/FFF"
-        android:name="com.android.photosapp.data.ui.fragments.TestFragment"
+        android:name="com.android.photosapp.ui.fragments.TestFragment"
         android:label="TestFragment" />
     <fragment
         android:id="@+id/add_photo"
-        android:name="com.android.photosapp.data.ui.fragments.AddDialogFragment"
+        android:name="com.android.photosapp.ui.fragments.AddDialogFragment"
         android:label="Add photo" />
 </navigation>

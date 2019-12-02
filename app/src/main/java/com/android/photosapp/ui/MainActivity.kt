@@ -1,4 +1,4 @@
-package com.android.photosapp
+package com.android.photosapp.ui
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupWithNavController
+import com.android.photosapp.R
 import com.android.photosapp.data.viewModelPackage.MainViewModel
 import com.android.photosapp.databinding.ActivityMainBinding
 
@@ -21,8 +22,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var viewModel: MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        navigator = Navigation.findNavController(this, R.id.main_fragment_container)
+        activityMainBinding = DataBindingUtil.setContentView(
+            this,
+            R.layout.activity_main
+        )
+        navigator = Navigation.findNavController(
+            this,
+            R.id.main_fragment_container
+        )
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         navigationSetup(navigator, activityMainBinding)
         setSupportActionBar(activityMainBinding.toolbar)
@@ -38,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.delete_all) {
+        if (item.itemId == R.id.delete_all) {
             viewModel.deleteAll()
         }
         return item.onNavDestinationSelected(navigator) || super.onOptionsItemSelected(item)

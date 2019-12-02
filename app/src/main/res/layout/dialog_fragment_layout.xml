@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ScrollView
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/mtrl_card_spacing"
-            android:layout_marginTop="@dimen/mtrl_card_spacing"
-            android:layout_marginRight="@dimen/mtrl_card_spacing"
-            >
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/mtrl_card_spacing"
+        android:layout_marginTop="@dimen/mtrl_card_spacing"
+        app:cardElevation="@dimen/cardview_default_radius"
+        android:layout_marginRight="@dimen/mtrl_card_spacing">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-        android:orientation="vertical"
+            android:orientation="vertical"
             android:padding="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -42,57 +39,57 @@
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/description"
-            style="@style/textInput"
-            android:layout_width="256dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Enter description"
-            app:counterEnabled="true"
-            app:endIconDrawable="@drawable/ic_replay_black_24dp"
-            app:endIconMode="clear_text"
-            app:helperText="content here"
-            app:helperTextEnabled="true"
-            app:layout_constraintEnd_toEndOf="@+id/title"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/title"
-            app:layout_constraintTop_toBottomOf="@id/title">
-
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/description"
                 style="@style/textInput"
-                android:id="@+id/description_text"
-                android:textCursorDrawable="@color/colorAccent"
-                android:outlineAmbientShadowColor="@color/colorAccent"
-                android:outlineSpotShadowColor="@color/colorAccent"
-                android:maxLength="200"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_width="256dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Enter description"
+                app:counterEnabled="true"
+                app:endIconDrawable="@drawable/ic_replay_black_24dp"
+                app:endIconMode="clear_text"
+                app:helperText="content here"
+                app:helperTextEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/title"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@id/title">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/ok_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="@color/colorAccent"
-            android:text="OK"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toStartOf="@+id/add_image"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/description"
-            app:layout_constraintTop_toBottomOf="@+id/description" />
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/textInput"
+                    android:id="@+id/description_text"
+                    android:textCursorDrawable="@color/colorAccent"
+                    android:outlineAmbientShadowColor="@color/colorAccent"
+                    android:outlineSpotShadowColor="@color/colorAccent"
+                    android:maxLength="700"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/add_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorAccent"
-            android:text="ADD IMAGE"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintEnd_toEndOf="@+id/description"
-            app:layout_constraintTop_toTopOf="@+id/ok_button" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </ScrollView>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ok_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/colorAccent"
+                android:text="OK"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintEnd_toStartOf="@+id/add_image"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/description"
+                app:layout_constraintTop_toBottomOf="@+id/description" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/add_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorAccent"
+                android:text="ADD IMAGE"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="@+id/description"
+                app:layout_constraintTop_toTopOf="@+id/ok_button" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
 </layout>

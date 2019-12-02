@@ -9,13 +9,14 @@ import com.android.photosapp.data.repositories.MainRepository
 import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
-    val mainRepository:MainRepository = MainRepository(application)
+    val mainRepository: MainRepository = MainRepository(application)
 
-    var photo:LiveData<MutableList<PhotoEntity>> = mainRepository.getPhotos()
+    var photo: LiveData<MutableList<PhotoEntity>> = mainRepository.getPhotos()
 
-    fun addPhoto(photo:PhotoEntity) =  viewModelScope.launch {mainRepository.addPhoto(photo)  }
+    fun addPhoto(photo: PhotoEntity) = viewModelScope.launch { mainRepository.addPhoto(photo) }
 
-     fun deleteAll() = viewModelScope.launch { mainRepository.deleteAll()}
+    fun deleteAll() = viewModelScope.launch { mainRepository.deleteAll() }
 
-    fun deletePhoto(photo: PhotoEntity) = viewModelScope.launch { mainRepository.deletePhoto(photo) }
+    fun deletePhoto(photo: PhotoEntity) =
+        viewModelScope.launch { mainRepository.deletePhoto(photo) }
 }

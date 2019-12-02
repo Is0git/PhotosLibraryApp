@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
+
         <variable
             name="photo"
             type="com.android.photosapp.data.entity.PhotoEntity" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,14 +19,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="250dp"
+            app:cardUseCompatPadding="true"
             android:layout_marginLeft="@dimen/mtrl_card_spacing"
             android:layout_marginTop="@dimen/mtrl_card_spacing"
             android:layout_marginRight="@dimen/mtrl_card_spacing"
             app:layout_constraintTop_toTopOf="parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
+
                 <ImageView
                     android:id="@+id/photo"
                     android:background="@color/colorTitle"
@@ -49,15 +54,17 @@
                     android:layout_marginStart="10dp"
                     android:layout_width="375dp"
                     android:layout_height="wrap_content"
-                    android:text="@{photo.description, default = `N/A`}"/>
+                    android:layout_marginBottom="10dp"
+                    android:text="@{photo.description, default = `N/A`}" />
             </LinearLayout>
+
             <ProgressBar
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:id="@+id/progressBar"
                 android:layout_gravity="center"
                 android:layout_marginBottom="30dp"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

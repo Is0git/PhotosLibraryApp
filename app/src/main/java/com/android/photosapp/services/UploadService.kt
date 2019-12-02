@@ -1,4 +1,4 @@
-package com.android.photosapp.data.services
+package com.android.photosapp.services
 
 import android.app.IntentService
 import android.app.Notification
@@ -9,7 +9,6 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.net.toUri
 import com.android.photosapp.ChannelConst
-import com.android.photosapp.MainActivity
 import com.android.photosapp.R
 import com.android.photosapp.data.entity.PhotoEntity
 import com.android.photosapp.data.repositories.MainRepository
@@ -43,10 +42,15 @@ class UploadService : IntentService("photo_service_thread") {
     }
 
     fun runNotification(photo: PhotoEntity) {
-        val intent:Intent = Intent()
+        val intent: Intent = Intent()
         intent.setData(photo.image_url?.toUri())
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-        val pendingIntent:PendingIntent = PendingIntent.getActivity(applicationContext, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(
+            applicationContext,
+            1,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT
+        )
         photoNotification = Notification.Builder(applicationContext, ChannelConst.photoTaskChannel)
             .setContentTitle("Image is uploaded with title ${photo.title}")
             .setContentText("Description: ${photo.description}")
