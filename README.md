@@ -1,5 +1,5 @@
 # PhotosLibraryApp
-Kotlin + coroutines + mvvm + room + lifecycle/viewmodel + navigation + databinding + livedata + IntentService
+Kotlin + coroutines + mvvm + room + lifecycle/viewmodel + navigation + databinding + livedata + IntentService + Notifications
 <img class='header-img' src='https://i.ibb.co/chnzgxq/photolib-PNG.png' />
 
 
