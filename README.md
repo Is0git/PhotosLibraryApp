@@ -5,7 +5,7 @@ Kotlin + coroutines + mvvm + room + lifecycle/viewmodel + navigation + databindi
 
 
 <p>Simple photo library app using MVVM architecture</p>
-<h1><a href='https://streamable.com/3firm' target='_blank'>DEMO</a></h1>
+
 
 
 <h2><strong>Essential libraries I used:</h2>
